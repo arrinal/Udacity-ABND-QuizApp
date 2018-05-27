@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Quiz App</string>
+    <string name="instruction">Pilihlah jawaban yang paling tepat!</string>
+    <string name="one">1. Pusat Keuangan Amerika Serikat berada di ...</string>
+    <string name="two">2. Berikut ini adalah negara yang dilalui oleh Pegunungan Alpen, kecuali ...</string>
+    <string name="three">3. \"Benua Biru\" adalah sebutan bagi benua ...</string>
+    <string name="four">4. Ankara adalah ibukota dari negara ...</string>
+    <string name="five">5. Hari perdamaian dunia oleh gereja katolik roma diperingati setiap tanggal ...</string>
+    <string name="one_a">New York</string>
+    <string name="one_b">Washington DC</string>
+    <string name="one_c">Chicago</string>
+    <string name="two_a">Austria</string>
+    <string name="two_b">Liechtenstein</string>
+    <string name="two_c">Hungaria</string>
+    <string name="three_a">Asia</string>
+    <string name="three_b">Eropa</string>
+    <string name="three_c">Afrika</string>
+    <string name="four_a">Libanon</string>
+    <string name="four_b">Bahrain</string>
+    <string name="four_c">Turki</string>
+    <string name="five_a">1 Januari</string>
+    <string name="five_b">1 Februari</string>
+    <string name="five_c">1 Maret</string>
+    <string name="toast_one">Kamu belum mengisi jawaban untuk soal nomor 1!</string>
+    <string name="toast_two">Kamu belum mengisi jawaban untuk soal nomor 2!</string>
+    <string name="toast_three">Kamu belum mengisi jawaban untuk soal nomor 3!</string>
+    <string name="toast_four">Kamu belum mengisi jawaban untuk soal nomor 4!</string>
+    <string name="toast_five">Kamu belum mengisi jawaban untuk soal nomor 5!</string>
+    <string name="result_totalCorrect">Jumlah Benar: </string>
+    <string name="result_totalIncorrect">Jumlah Salah: </string>
+    <string name="result_score">Nilai: </string>
+    <string name="result_toast">Selamat! Anda mendapatkan nilai </string>
+    <string name="submit">Kirim Jawaban</string>
+    <string name="reset">Atur Ulang</string>
+</resources>
