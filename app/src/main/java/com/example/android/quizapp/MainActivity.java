@@ -3,6 +3,8 @@ package com.example.android.quizapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -10,17 +12,17 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
-
     /**
      * Variable for correct and incorrect score
      */
     int scoreCorrect = 0;
     int scoreIncorrect = 0;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
 
     /**
      * Function for submit the answer button
@@ -34,71 +36,66 @@ public class MainActivity extends AppCompatActivity {
         boolean keyOne = questionOne.isChecked();
 
         RadioButton questionOneA = findViewById(R.id.notKey_1a);
-        boolean notKeySatuA = questionOneA.isChecked();
+        boolean notKeyOneA = questionOneA.isChecked();
 
         RadioButton questionOneB = findViewById(R.id.notKey_1b);
-        boolean notKeySatuB = questionOneB.isChecked();
+        boolean notKeyOneB = questionOneB.isChecked();
 
         RadioButton questionTwo = findViewById(R.id.key_2);
         boolean keyTwo = questionTwo.isChecked();
 
         RadioButton questionTwoA = findViewById(R.id.notKey_2a);
-        boolean notKeyDuaA = questionTwoA.isChecked();
+        boolean notKeyTwoA = questionTwoA.isChecked();
 
         RadioButton questionTwoB = findViewById(R.id.notKey_2b);
-        boolean notKeyDuaB = questionTwoB.isChecked();
+        boolean notKeyTwoB = questionTwoB.isChecked();
 
-        RadioButton questionThree = findViewById(R.id.key_3);
-        boolean keyThree = questionThree.isChecked();
+        CheckBox questionThreeA = findViewById(R.id.key_3a);
+        boolean keyThreeA = questionThreeA.isChecked();
 
-        RadioButton questionThreeA = findViewById(R.id.notKey_3a);
-        boolean notKeyTigaA = questionThreeA.isChecked();
+        CheckBox questionThreeB = findViewById(R.id.key_3b);
+        boolean keyThreeB = questionThreeB.isChecked();
 
-        RadioButton questionThreeB = findViewById(R.id.notKey_3b);
-        boolean notKeyTigaB = questionThreeB.isChecked();
+        CheckBox falseQuestionThreeA = findViewById(R.id.notKey_3a);
+        boolean notKeyThreeA = falseQuestionThreeA.isChecked();
 
-        RadioButton questionFour = findViewById(R.id.key_4);
-        boolean keyFour = questionFour.isChecked();
-
-        RadioButton questionFourA = findViewById(R.id.notKey_4a);
-        boolean notKeyEmpatA = questionFourA.isChecked();
-
-        RadioButton questionFourB = findViewById(R.id.notKey_4b);
-        boolean notKeyEmpatB = questionFourB.isChecked();
+        EditText questionFour = findViewById(R.id.key_4);
+        boolean keyFourLength = questionFour.getText().toString().length() == 0;
+        String keyFour = questionFour.getText().toString();
 
         RadioButton questionFive = findViewById(R.id.key_5);
         boolean keyFive = questionFive.isChecked();
 
         RadioButton questionFiveA = findViewById(R.id.notKey_5a);
-        boolean notKeyLimaA = questionFiveA.isChecked();
+        boolean notKeyFiveA = questionFiveA.isChecked();
 
         RadioButton questionFiveB = findViewById(R.id.notKey_5b);
-        boolean notKeyLimaB = questionFiveB.isChecked();
+        boolean notKeyFiveB = questionFiveB.isChecked();
 
         /**
          * Function to make sure all question already answered after check the submit button
          */
-        if ((keyOne || notKeySatuA || notKeySatuB) != true) {
+        if ((keyOne || notKeyOneA || notKeyOneB) != true) {
             displayToast(getString(R.string.toast_one));
             return;
         }
 
-        if ((keyTwo || notKeyDuaA || notKeyDuaB) != true) {
+        if ((keyTwo || notKeyTwoA || notKeyTwoB) != true) {
             displayToast(getString(R.string.toast_two));
             return;
         }
 
-        if ((keyThree || notKeyTigaA || notKeyTigaB) != true) {
+        if ((keyThreeA || keyThreeB || notKeyThreeA) != true) {
             displayToast(getString(R.string.toast_three));
             return;
         }
 
-        if ((keyFour || notKeyEmpatA || notKeyEmpatB) != true) {
+        if (keyFourLength == true) {
             displayToast(getString(R.string.toast_four));
             return;
         }
 
-        if ((keyFive || notKeyLimaA || notKeyLimaB) != true) {
+        if ((keyFive || notKeyFiveA || notKeyFiveB) != true) {
             displayToast(getString(R.string.toast_five));
             return;
         }
@@ -120,13 +117,13 @@ public class MainActivity extends AppCompatActivity {
             scoreIncorrect = scoreIncorrect + 1;
         }
 
-        if (keyThree == true) {
+        if ((keyThreeA && keyThreeB) == true && (notKeyThreeA) == false) {
             scoreCorrect = scoreCorrect + 1;
         } else {
             scoreIncorrect = scoreIncorrect + 1;
         }
 
-        if (keyFour == true) {
+        if (keyFour.equals("Indonesia")) {
             scoreCorrect = scoreCorrect + 1;
         } else {
             scoreIncorrect = scoreIncorrect + 1;
@@ -162,11 +159,17 @@ public class MainActivity extends AppCompatActivity {
         RadioGroup varGroup2 = findViewById(R.id.radioGroup2);
         varGroup2.clearCheck();
 
-        RadioGroup varGroup3 = findViewById(R.id.radioGroup3);
-        varGroup3.clearCheck();
+        CheckBox varKey3A = findViewById(R.id.key_3a);
+        varKey3A.setChecked(false);
 
-        RadioGroup varGroup4 = findViewById(R.id.radioGroup4);
-        varGroup4.clearCheck();
+        CheckBox varKey3B = findViewById(R.id.key_3b);
+        varKey3B.setChecked(false);
+
+        CheckBox varNotKey3A = findViewById(R.id.notKey_3a);
+        varNotKey3A.setChecked(false);
+
+        EditText varKey4 = findViewById(R.id.key_4);
+        varKey4.setText("");
 
         RadioGroup varGroup5 = findViewById(R.id.radioGroup5);
         varGroup5.clearCheck();
